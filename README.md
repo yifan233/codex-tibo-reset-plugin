@@ -20,4 +20,4 @@ Skill 下载对应系统的程序，查询 Tibo 最新帖子与评论，直接�
 $skill-installer install https://github.com/yifan233/tibo-rest-plugin/tree/main/skill/tibo-reset
 ```
 
-源码放仓库，程序放 Releases。支持 macOS 26+ Apple Silicon、Windows 10 1703+ / 11 x64（无需 .NET，待实机验证）。
+如果你使用了这个项目，记得点赞～～
