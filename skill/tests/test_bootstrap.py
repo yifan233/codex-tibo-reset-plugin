@@ -7,9 +7,9 @@ class BootstrapTests(unittest.TestCase):
   b=io.BytesIO()
   with zipfile.ZipFile(b,'w') as z:z.writestr(name,body)
   return b.getvalue()
- def reader(self,data,checksum=True,key="Windows-x86_64"):
-  name=m.ASSETS[key]
-  url='https://github.com/yifan233/tibo-rest-plugin/releases/download/v0.1.0/'+name
+ def reader(self,data,checksum=True,key="Windows-x86_64",name=None):
+  name=name or m.ASSETS[key]
+  url='https://github.com/yifan233/codex-tibo-reset-plugin/releases/download/v0.1.0/'+name
   asset={'name':name,'browser_download_url':url}
   if checksum:asset['digest']='sha256:'+hashlib.sha256(data).hexdigest()
   release={'tag_name':'v0.1.0','assets':[asset]}
@@ -50,6 +50,17 @@ class BootstrapTests(unittest.TestCase):
  def test_path_traversal_rejected(self):
   with tempfile.TemporaryDirectory() as d:
    with self.assertRaises(ValueError):m.ensure_app(Path(d),'Windows-x86_64',self.reader(self.archive('../escaped')))
+ def test_legacy_release_asset(self):
+  with tempfile.TemporaryDirectory() as d:
+   result=m.ensure_app(Path(d),'Windows-x86_64',self.reader(self.archive(),name=m.LEGACY_ASSETS['Windows-x86_64']))
+   self.assertEqual(result['status'],'installed')
+ def test_default_directory_and_legacy_reuse(self):
+  from unittest.mock import patch
+  with tempfile.TemporaryDirectory() as d, patch.dict(m.os.environ,{'CODEX_HOME':d}):
+   self.assertEqual(m.default_root(),Path(d)/'apps/codex-tibo-reset-plugin')
+   legacy=Path(d)/'apps/tibo-rest-plugin';legacy.mkdir(parents=True)
+   (legacy/'TiboReset.exe').write_bytes(b'MZ')
+   self.assertEqual(m.default_root(),legacy)
  def test_unsupported_platform(self):
   with tempfile.TemporaryDirectory() as d:
    with self.assertRaises(ValueError):m.ensure_app(Path(d),'Linux-x86_64',lambda _:self.fail('Unexpected network'))

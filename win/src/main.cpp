@@ -171,7 +171,7 @@ public:
     tray.uFlags = NIF_MESSAGE | NIF_ICON | NIF_TIP;
     tray.uCallbackMessage = TRAY;
     tray.hIcon = LoadIconW(nullptr, IDI_APPLICATION);
-    lstrcpynW(tray.szTip, L"tibo rest plugin", 128);
+    lstrcpynW(tray.szTip, L"codex-tibo-reset-plugin", 128);
     Shell_NotifyIconW(NIM_ADD, &tray);
     tray.uVersion = NOTIFYICON_VERSION_4;
     Shell_NotifyIconW(NIM_SETVERSION, &tray);
@@ -553,7 +553,7 @@ public:
     RegisterClassW(&wc);
     taskbarCreated = RegisterWindowMessageW(L"TaskbarCreated");
     hwnd = CreateWindowExW(WS_EX_TOPMOST | WS_EX_TOOLWINDOW | WS_EX_LAYERED, L"TiboIslandNative",
-                           L"Reset Island", WS_POPUP, 0, 0, W, CLOSED, nullptr, nullptr, instance,
+                           L"codex-tibo-reset-plugin", WS_POPUP, 0, 0, W, CLOSED, nullptr, nullptr, instance,
                            this);
     if (!hwnd)
       throw std::runtime_error(tr("创建窗口失败", "Unable to create window"));
@@ -624,7 +624,7 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE, PWSTR, int) {
     if (argc > 1)
       output(tr("设置失败: ", "Update failed: ") + e.what() + "\n", true);
     else
-      MessageBoxW(nullptr, wide(e.what()).c_str(), L"Reset Island", MB_OK | MB_ICONERROR);
+      MessageBoxW(nullptr, wide(e.what()).c_str(), L"codex-tibo-reset-plugin", MB_OK | MB_ICONERROR);
     if (args)
       LocalFree(args);
     return 1;

@@ -9,11 +9,13 @@ description: 用户说“查询codex重置”“查询tibo重置”或“check C
 
 ## 1. 检查程序
 
-用 Python 3 运行本技能的 `scripts/ensure_app.py`。默认目录为 `${CODEX_HOME}/apps/tibo-rest-plugin/`，未设置 `CODEX_HOME` 时使用 `~/.codex/apps/tibo-rest-plugin/`。
+用 Python 3 运行本技能的 `scripts/ensure_app.py`。默认目录为 `${CODEX_HOME}/apps/codex-tibo-reset-plugin/`，未设置 `CODEX_HOME` 时使用 `~/.codex/apps/codex-tibo-reset-plugin/`。
 
 仓库提供源码，Releases 提供程序。脚本复用已有程序，缺失时按系统与架构下载并校验 SHA-256。读取返回的 `executable`、`installDir`；脚本不会启动程序。支持 macOS Apple Silicon、Windows x64，用户无需编译。
 
 用户指定已有程序时复用；指定下载目录时调用 `ensure_app(root=<目录>)`。缺少 Python、平台不支持或下载失败时，报告阻碍并继续查询。最多重试下载两次，不跳过校验。
+
+已有旧目录中的程序会继续复用，保留现有倒计时。
 
 ## 2. 查询消息与卡期限
 

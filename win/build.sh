@@ -6,3 +6,4 @@ mkdir -p "$ROOT/dist"
 "$CXX" -std=c++17 -Os -ffunction-sections -fdata-sections -static -municode -mwindows \
   -Wl,--gc-sections -s "$ROOT/src/main.cpp" -o "$ROOT/dist/TiboReset.exe" \
   -ladvapi32 -ld2d1 -ldwrite -lole32 -luuid -lcomctl32 -lshell32 -lgdi32 -luser32
+cp "$ROOT/../LICENSE" "$ROOT/dist/LICENSE"

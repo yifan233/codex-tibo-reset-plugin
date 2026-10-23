@@ -1,4 +1,4 @@
-# tibo rest plugin
+# codex-tibo-reset-plugin
 
 [中文](README.md) · English
 
@@ -17,7 +17,9 @@ The skill downloads the app for your system, checks Tibo's latest posts and comm
 Send this to Codex:
 
 ```text
-$skill-installer install https://github.com/yifan233/tibo-rest-plugin/tree/main/skill/tibo-reset
+$skill-installer install https://github.com/yifan233/codex-tibo-reset-plugin/tree/main/skill/tibo-reset
 ```
 
 If you use this project, remember to give it a star～～
+
+[MIT License](LICENSE)

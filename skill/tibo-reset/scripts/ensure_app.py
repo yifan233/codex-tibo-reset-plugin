@@ -14,8 +14,13 @@ import urllib.request
 from urllib.parse import urlsplit
 import zipfile
 
-REPOSITORY = 'yifan233/tibo-rest-plugin'
+REPOSITORY = 'yifan233/codex-tibo-reset-plugin'
 ASSETS = {
+    'Darwin-arm64': 'codex-tibo-reset-plugin-macos-arm64.zip',
+    'Windows-x86_64': 'codex-tibo-reset-plugin-windows-x64.zip',
+}
+
+LEGACY_ASSETS = {
     'Darwin-arm64': 'tibo-rest-plugin-macos-arm64.zip',
     'Windows-x86_64': 'tibo-rest-plugin-windows-x64.zip',
 }
@@ -29,7 +34,12 @@ def platform_key(system=None, machine=None):
 
 
 def default_root():
-    return Path(os.environ.get('CODEX_HOME', str(Path.home() / '.codex'))) / 'apps' / 'tibo-rest-plugin'
+    base = Path(os.environ.get('CODEX_HOME', str(Path.home() / '.codex'))) / 'apps'
+    current = base / 'codex-tibo-reset-plugin'
+    legacy = base / 'tibo-rest-plugin'
+    if not current.exists() and any((legacy / name).is_file() for name in ['TiboReset.exe', 'Reset Countdown.app/Contents/MacOS/ResetCountdown']):
+        return legacy
+    return current
 
 
 def validate_url(url):
@@ -47,7 +57,7 @@ class ReleaseRedirect(urllib.request.HTTPRedirectHandler):
 
 def read_url(url):
     validate_url(url)
-    request = urllib.request.Request(url, headers={'User-Agent': 'tibo-rest-plugin-skill', 'Accept-Encoding': 'identity'})
+    request = urllib.request.Request(url, headers={'User-Agent': 'codex-tibo-reset-plugin-skill', 'Accept-Encoding': 'identity'})
     opener = urllib.request.build_opener(ReleaseRedirect())
     with opener.open(request, timeout=60) as response:
         validate_url(response.geturl())
@@ -103,7 +113,7 @@ def ensure_app(root=None, key=None, reader=read_url):
         raise ValueError('Invalid project repository')
     release = json.loads(reader('https://api.github.com/repos/' + repo + '/releases/latest'))
     assets = {item['name']: item for item in release.get('assets', [])}
-    name = ASSETS[key]
+    name = ASSETS[key] if ASSETS[key] in assets else LEGACY_ASSETS[key]
     if name not in assets:
         raise ValueError('Release is not published or the platform asset is missing: ' + name)
     item = assets[name]

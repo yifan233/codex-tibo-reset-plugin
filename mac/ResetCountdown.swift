@@ -191,7 +191,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     func applicationDidFinishLaunching(_ notification: Notification) {
         window = IslandPanel(contentRect: .zero, styleMask: [.borderless, .nonactivatingPanel], backing: .buffered, defer: false)
-        window.title = "Reset Island"; window.isOpaque = false; window.backgroundColor = .clear
+        window.title = "codex-tibo-reset-plugin"; window.isOpaque = false; window.backgroundColor = .clear
         window.hasShadow = true; window.level = NSWindow.Level(rawValue: NSWindow.Level.statusBar.rawValue + 1)
         window.hidesOnDeactivate = false; window.isReleasedWhenClosed = false
         window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]

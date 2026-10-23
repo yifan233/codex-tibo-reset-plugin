@@ -6,7 +6,9 @@ Use this workflow for “check Codex reset” or “check Tibo reset”. Complet
 
 Run this skill's `scripts/ensure_app.py` with Python 3. It reuses the app or downloads the matching GitHub Release asset with SHA-256 verification. Read `executable` and `installDir` from its output. It does not launch the app. Source stays in the repository; users do not compile it.
 
-Default installation: `${CODEX_HOME}/apps/tibo-rest-plugin/`, or `~/.codex/apps/tibo-rest-plugin/`. Support: macOS Apple Silicon and Windows x64. Reuse a user-specified executable; use `ensure_app(root=<directory>)` for a custom installation. On missing Python, unsupported platform or download failure, report the blocker and continue researching. Retry downloads at most twice; never bypass verification.
+Default installation: `${CODEX_HOME}/apps/codex-tibo-reset-plugin/`, or `~/.codex/apps/codex-tibo-reset-plugin/`. Support: macOS Apple Silicon and Windows x64. Reuse a user-specified executable; use `ensure_app(root=<directory>)` for a custom installation. On missing Python, unsupported platform or download failure, report the blocker and continue researching. Retry downloads at most twice; never bypass verification.
+
+Existing installations in the previous directory are reused to preserve countdowns.
 
 ## Research and check credits
 

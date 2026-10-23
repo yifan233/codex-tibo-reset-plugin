@@ -1,5 +1,5 @@
 interface:
-  display_name: "Tibo Reset"
+  display_name: "Codex Tibo Reset"
   short_description: "查询重置与倒计时 / Check resets and countdowns"
   default_prompt: "使用 $tibo-reset 查询tibo重置 / check Codex reset."
 policy:

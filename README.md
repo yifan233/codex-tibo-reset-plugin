@@ -1,4 +1,4 @@
-# tibo rest plugin
+# codex-tibo-reset-plugin
 
 中文 · [English](README.en.md)
 
@@ -17,7 +17,9 @@ Skill 下载对应系统的程序，查询 Tibo 最新帖子与评论，直接�
 将以下内容发给 Codex：
 
 ```text
-$skill-installer install https://github.com/yifan233/tibo-rest-plugin/tree/main/skill/tibo-reset
+$skill-installer install https://github.com/yifan233/codex-tibo-reset-plugin/tree/main/skill/tibo-reset
 ```
 
 如果你使用了这个项目，记得点赞～～
+
+[MIT License](LICENSE)
