@@ -20,4 +20,4 @@ Send this to Codex:
 $skill-installer install https://github.com/yifan233/tibo-rest-plugin/tree/main/skill/tibo-reset
 ```
 
-Source code lives in the repository; apps are distributed through Releases. Supports macOS 26+ on Apple Silicon and Windows 10 1703+ / 11 x64 (no .NET required; Windows UI awaits device testing).
+If you use this project, remember to give it a star～～
