@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="592" height="64" viewBox="0 0 296 32" role="img" aria-labelledby="title">
+  <title id="title">倒计时胶囊 / Countdown capsule</title>
+  <rect width="296" height="32" rx="13" fill="#000"/>
+  <g font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="600">
+    <text x="6" y="22" fill="#32d4e5">16:00</text>
+    <text x="241.5" y="22" fill="#ff9f42">3d08h</text>
+  </g>
+</svg>

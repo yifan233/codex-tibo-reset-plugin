@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="592" height="540" viewBox="0 0 296 270" role="img" aria-label="Countdown interface preview">
+<rect width="296" height="270" rx="22" fill="#000"/>
+<g font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-weight="500">
+<text x="6" y="23" fill="#32d4e5" font-size="14" font-weight="600">16:00</text>
+<text x="241.5" y="23" fill="#ff9f42" font-size="14" font-weight="600">3d08h</text>
+<text x="16" y="65" font-size="13" fill="#fff">RESET / Deadlines</text>
+<text x="16" y="97" font-size="11" fill="#32d4e5">Tibo · 10/24 10:00:00</text>
+<text x="16" y="125" font-size="11" fill="#ff9f42">First card · 10/27 02:00:00</text>
+<text x="16" y="153" font-size="11" fill="#bdbdbd">Next card · None</text>
+<text x="16" y="204" font-size="10" fill="#888">Set by Codex</text>
+<rect x="12" y="228" width="86" height="26" rx="7" fill="#1a1a1a" stroke="#333"/>
+<text x="55.0" y="245" text-anchor="middle" font-size="11" fill="#ddd">Edit time</text>
+<rect x="103" y="228" width="78" height="26" rx="7" fill="#1a1a1a" stroke="#333"/>
+<text x="142.0" y="245" text-anchor="middle" font-size="11" fill="#ddd">Source ↗</text>
+<rect x="224" y="228" width="60" height="26" rx="7" fill="#1a1a1a" stroke="#333"/>
+<text x="254.0" y="245" text-anchor="middle" font-size="11" fill="#ddd">Quit</text>
+</g>
+</svg>

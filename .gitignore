@@ -1,0 +1,10 @@
+.DS_Store
+mac/dist/
+win/dist/
+*.app/
+*.exe
+*.zip
+*.obj
+*.pdb
+__pycache__/
+*.pyc
